@@ -1,0 +1,172 @@
+*{
+    margin: 0;
+    /* box-sizing: border-box; */
+    /* width: 100vw;
+    max-width: 1200px; */
+    margin-right: 0px;
+    
+}
+body{
+    margin: 0px;
+    background-color:rgb(111,78,55);
+}
+section{
+    color:black;
+}
+.container{
+     width:  100vw; 
+    height: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;    
+    /* background-image: url("./coffee.jpg"); */
+    color:whitesmoke;
+    font-family: Georgia;
+    font-weight: 400;
+}
+.header-class{
+    background-image: url("./header background.jpg");
+    background-repeat: repeat-x;
+    background-color: blanchedalmond;
+    margin-top:0;
+    margin-bottom: 0; 
+    height: 20%;
+}
+
+       
+ ul {
+     padding: 0;
+            list-style: none;
+     margin-left:0%;
+     text-align: center;
+}
+ul li {
+    list-style-type: none;
+    display: inline-block;
+    /* height:inherit; */
+    /* width: auto; */
+     padding: 0 20px;
+     border-right: 4px solid #ffffff;
+    /* margin: 50px 0.5% 30px 0px; */
+    text-align: center;
+    /* padding-right: 10%; */
+    /* padding-left: 0; */
+   
+}
+ li:last-child {
+            border-right: none;
+        }
+ul li a{
+     list-style-type: none;
+    display: inline-block;
+    text-decoration: none;
+    color:white;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Georgia;
+    height: inherit;
+    padding: 5px;
+    margin-right: 5px;
+
+}
+ul li a:hover{
+    
+    background-color: #ffffff;
+    color:black;
+}
+.main-wrapper{
+    height: 60%;
+    /* background-color:rgb(111,78,55); */
+    background-image: url("./coffee.jpg");
+    margin-top:0;
+    width:  100vw;
+}
+
+ .title{
+    text-align: center;
+    position: relative;
+    top:40px;
+    margin-top: 10px;
+    font-family: 'Trebuchet MS';
+    font-weight: 900;
+    font-size: x-large;
+    background-color: #b87333;
+} 
+
+.text-content{
+    position: relative;
+    top:40px;
+    left:20px;
+    max-width: 92vw;
+    margin-top: 8px;
+}
+.image-content {
+    display: inline-block;
+    
+}
+.image-content img{
+    border: 1px solid #466995;
+    /* margin-left: 20px; */
+    margin-top: 50px;
+    text-align: center;
+    height: 350px;
+    width: 350px;
+}
+#img1{
+    margin-left: 100px;
+    margin-right: 20px;
+}
+#img2{
+    float:right;
+    margin-right: 100px;
+}
+div.main-wrapper div.image-content img{
+   transition: transform 0.2s;
+   
+}
+div.main-wrapper div.image-content img:hover{
+    transform: scale(1.1);
+}
+
+.footer{
+    /* overflow: hidden; */
+    /* clear: both; */
+    padding-top: 26px;
+    border-top: 1px solid #bbb;
+    color: white;
+    position: relative;
+    height: 80px;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    padding-bottom: 0;
+    text-align: center;
+    background-image: url("./header background.jpg");
+    background-repeat: repeat-x;
+    margin-top:0;
+    margin-bottom: 0; 
+    font-family: Arial;
+}
+
+#Coffee{
+    text-align: center; 
+    text-transform: uppercase; 
+    text-decoration: solid; 
+    font-size: 50px;
+    margin-left:0;
+    font-weight: bold;
+    color:whitesmoke;
+}
+hr{
+
+    border-color: white;
+    margin-bottom: 12px; 
+}
+
+article{
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-bottom: 2px; 
+}
