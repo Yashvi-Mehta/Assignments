@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Who we are</title>
+    <style>
+        html {
+            color: #fff;
+            font-family: 'gothamlight', Arial, sans-serif;
+            font-size: 18px;
+        }
+
+        html {
+            display: block;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #005b90;
+            overflow-x: hidden;
+            display: block;
+            /* margin: 8px; */
+        }
+
+        .vm-container .vm-child {
+            float: left;
+            /* margin: 50px; */
+            /* transition: left 300s linear; */
+
+        }
+
+        .vm-container {
+            perspective: 1200px;
+            /* margin-left: 8%; */
+        }
+
+        .vm-child {
+            display: block;
+        }
+
+
+
+        .vm-left {
+            background-color: brown;
+            float: left;
+            height: 89.2vh;
+            width: 60vw;
+            transform: translateZ(-48px) rotateY(30deg);
+
+        }
+
+        .vm-right {
+            background-color: seagreen;
+            margin-left: 52.5vw;
+            height: 82vh;
+            width: 59vw;
+            transform: translateZ(40px) rotateY(335deg);
+            /* position: relative;
+            top: 0px; */
+            text-align: center;
+        }
+
+        #div1,
+        #vm-div2 {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            /* border: 1px solid; */
+        }
+
+        #vm-image {
+            position: relative;
+            top: 160px;
+            left: 250px;
+            z-index: 8;
+        }
+
+        #vm-content {
+            padding: 100px;
+            /* margin: 30px; */
+        }
+
+
+        .blankspace1 {
+            height: 40px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        $(window).scroll(function () {
+            $("#vm-div2").delay(80).animate({ right: '200px' }, 800);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="blankspace1"></div>
+    <div class="blankspace1"></div>
+    <div class="blankspace1"></div>
+    <div class="blankspace1"></div>
+    <div class="blankspace1"></div>
+    <div class="blankspace1"></div>
+    <div class="blankspace1"></div>
+    <div class="blankspace1"></div>
+    <div class="vm-container">
+        <div class="vm-child" id="vm-div2">
+            <div class="vm-left" id="l1">
+                <img id="vm-image" src="vision-clipart.png">
+            </div>
+            <div class="vm-right" id="r1">
+                <div id="vm-content">
+                    <strong>Vision:</strong><br>
+                    An attempt to make sure no one looses <em><i>'HOPE'</i></em>.
+                    <br><br>
+                    <br>
+                    <strong>Mission:</strong><br>
+                    <ul>
+                        <li>To enable people to take responsibility for the
+                            situation of the deprived Indian child and so
+                            motivate them to seek resolution through individual
+                            and collective action thereby enabling children to
+                            realise their full potential.</li>
+                        <li>
+                            To make people discover their potential for action and change.
+                        </li>
+                        <li>
+                            To enable peoples’ collectives and movements encompassing diverse segments, to pledge their
+                            particular strengths,
+                            working in partnership to secure, protect and
+                            honour the rights of India’s children.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</body>
+
+</html>
