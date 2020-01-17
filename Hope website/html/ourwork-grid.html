@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./our-work.css">
+    <link rel="stylesheet" href="headerstyle.css" type="text/css">
+    <link rel="stylesheet" href="footer_style.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        var one = "#10e88a",
+            two = "#7f3995",
+            three = "#0d78e7",
+            four = "#f88f18",
+            five = "#bb6774";
+
+        $(window).on("scroll touchmove", function () {
+            if ($(document).scrollTop() >= $("#one").position().top) {
+                $('body').css('background', $("#one").attr("data-color"));
+
+            };
+            if ($(document).scrollTop() > $("#two").position().top) {
+                $('body').css('background', $("#two").attr("data-color"))
+            };
+            if ($(document).scrollTop() > $("#three").position().top) {
+
+                $('body').css('background', $("#three").attr("data-color"))
+            };
+            if ($(document).scrollTop() > $("#four").position().top) {
+
+                $('body').css('background', $("#four").attr("data-color"))
+            };
+            if ($(document).scrollTop() >= $("#five").position().top) {
+                $('body').css('background', $("#five").attr("data-color"))
+            };
+        });
+    </script>
+    <script>
+        var modal = (function () {
+            var
+                method = {},
+                $overlay,
+                $modal,
+                $content,
+                $close;
+
+            // Center the modal in the viewport
+            method.center = function () {
+                var top, left;
+
+                top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
+                left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
+
+                $modal.css({
+                    top: top + $(window).scrollTop(),
+                    left: left + $(window).scrollLeft()
+                });
+            };
+
+            // Open the modal
+            method.open = function (settings) {
+                $content.empty().append(settings.content);
+
+                $modal.css({
+                    width: settings.width || 'auto',
+                    height: settings.height || 'auto'
+                });
+
+                method.center();
+                $(window).bind('resize.modal', method.center);
+                $modal.show();
+                $overlay.show();
+            };
+
+            // Close the modal
+            method.close = function () {
+                $modal.hide();
+                $overlay.hide();
+                $content.empty();
+                $(window).unbind('resize.modal');
+            };
+
+            // Generate the HTML and add it to the document
+            $overlay = $('<div id="overlay"></div>');
+            $modal = $('<div id="modal"></div>');
+            $content = $('<div id="content"></div>');
+            $close = $('<a id="close" href="#">close</a>');
+
+            $modal.hide();
+            $overlay.hide();
+            $modal.append($content, $close);
+
+            $(document).ready(function () {
+                $('body').append($overlay, $modal);
+            });
+
+            $close.click(function (e) {
+                e.preventDefault();
+                method.close();
+            });
+
+            return method;
+        }());
+
+        // Wait until the DOM has loaded before querying the document
+        $(document).ready(function () {
+
+            $.get('ajax.html', function (data) {
+                modal.open({ content: data });
+            });
+
+            $('a#howdy').click(function (e) {
+                modal.open({
+                    content: "Email:<h1><a href='mailto: myashvi16@hope.com'>myashvi16@hope.com</a></h1><h1> Contact: +919867677717 / 1234567890</h1><h2>  <div id='result'></div ><div id='embedMap' style='width: 100%; height:60vh;'></div><button type='button' onclick='showPosition()''> Show Position </button></h2>"
+                });
+                e.preventDefault();
+            });
+        });
+        $(document).ready(function () {
+
+            $.get('ajax.html', function (data) {
+                modal.open({ content: data });
+            });
+
+            $('a#howdy1').click(function (e) {
+                modal.open({
+                    // content: "<ul class='social- network social - circle'> < li > <a href='#'' class='icoRss' title='Rss'><i class='fa fa-rss'></i></a></li><li><a href='#' class='icoFacebook' title='Facebook'><i class='fa fa-facebook'></i></a></li><li><a href='#' class='icoTwitter' title='Twitter'><i class='fa fa-twitter'></i></a></li><li><a href='#' class='icoGoogle' title='Google +'><i class='fa fa-google-plus'></i></a></li><li><a href='#' class='icoLinkedin' title='Linkedin'><i class='fa fa-linkedin'></i></a></li></ul>"
+                    content: "<a href='#' class='fa fa-facebook'></a><a href='#' class='fa fa-twitter'></a><a href='#' class='fa fa-google'></a><a href='#' class='fa fa-linkedin'></a><a href='#' class='fa fa-youtube'></a><a href='#' class='fa fa-instagram'></a><a href='#' class='fa fa-snapchat-ghost'></a><a href='#' class='fa fa-yahoo'></a><a href='#' class='fa fa-reddit'></a>"
+
+                });
+                e.preventDefault();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="work-container">
+        <div id="logog">
+            <a href="homepage5.1.html">
+                <img src="../Images/Logo.PNG">
+            </a>
+        </div>
+        <div id="navg">
+            <ul class="navigationbarr">
+                <li class="navigationli"><a href="homepage5.1.html" style="padding-top: 10%; font-size: 120%;">Home</a>
+                </li>
+                <li class="navigationli"><a href="about-us.html" style="padding-top: 10%; font-size: 120%;">About Us</a>
+                </li>
+                <li class="navigationli"><a href="ourwork-grid.html" style="padding-top: 10%; font-size: 120%;">Our
+                        Work</a></li>
+                <li class="navigationli"><a href="impact-grid.html" style="padding-top: 10%;font-size: 120%;">Impact</a>
+                </li>
+            </ul>
+        </div>
+        <div id="contentg">
+            <article id="one" data-color="#10e88a">
+                <h1>Education</h1>
+                <div>
+                    <img src="../Images/Education.jpg">
+                    <p>Mission Education is a national level programme of Smile Foundation, which is committed to
+                        providing
+                        basic education and
+                        healthcare to underprivileged children. Smile Foundation believes that whether you are
+                        addressing
+                        healthcare, poverty,
+                        population control, unemployment or human rights, there's no better place to start than in the
+                        corridors
+                        of education.
+
+                        Education is both the means as well as the end to a better life; means, because it empowers an
+                        individual to earn
+                        his/her livelihood and the end because it increases one's awareness on a range of issues – from
+                        healthcare to
+                        appropriate social behavior to understanding one's rights, and in the process evolve as a better
+                        citizen.
+
+                        Smile Foundation’s educational initiatives include Pre-school [3-6 yrs], Non Formal Education
+                        [6-14
+                        yrs
+                        non-school
+                        going], Remedial Education [6-14 yrs school going] and Bridge Course [14-18 yrs drop-outs]. It
+                        works
+                        for
+                        education for
+                        underprivileged children who are under difficult circumstances, such as child labour, children
+                        of
+                        poorest of the
+                        parents, children inflicted and affected with HIV/AIDS, street and runaway children, children
+                        with
+                        rare
+                        disabilities,
+                        disaster struck children and slum children. Special emphasis is given on girl education and
+                        women
+                        education, so that
+                        they and their families get empowered.
+
+                        Since its inception in 2002, more than 200,000 underprivileged children have directly benefitted
+                        from
+                        the Mission
+                        Education programme.
+                    </p>
+                </div>
+
+                <div class="clear"></div>
+            </article>
+            <article id="two" data-color="#7f3995">
+                <h1>Health</h1>
+                <div>
+                    <img src="../Images/health.jfif">
+                    <p>“He who has health has hope; and he who has hope has everything” – Arabic proverb
+
+                        India has made rapid strides in the health sector since independence. However, various eye
+                        opening
+                        data
+                        from NFHS
+                        clearly indicate that access to healthcare still remains a challenge.
+
+                        While the health statistics of rural India continue to be poor, the health status and access to
+                        health
+                        for the poor in
+                        urban slum dwellers has surfaced to be equally deplorable and have less than 4% of government
+                        primary
+                        healthcare
+                        facilities.
+
+                        Urban slum dwellers suffer from adverse health conditions owing to mainly two reasons –first the
+                        lack of
+                        education and
+                        thus lack of awareness; and second the unwillingness to lose a day’s wage in order to reach the
+                        nearest
+                        medical
+                        facility. Healthcare for underprivileged, which is a desperate need, thus remains unaddressed.
+
+                        The need of the hour is thus a two pronged approach – first to bring quality healthcare services
+                        to
+                        doorsteps of the
+                        needy and second to promote healthcare awareness and contemporary healthcare seeking behavior
+                        among
+                        the
+                        underprivileged.
+
+                        In such a scenario a mobile healthcare services delivery system is the most practical mechanism.
+                        And
+                        in
+                        subscription to
+                        this view, Smile Foundation has initiated the Smile on Wheels programme. This is a unique mobile
+                        hospital programme that
+                        seeks to address problems of mobility, accessibility and availability of primary healthcare with
+                        a
+                        special focus on
+                        children and women, in urban slums and remote rural areas.
+
+                        The Smile on Wheels programme has so far provided free healthcare services to more than 10 lakh
+                        children
+                        and families.
+                    </p>
+                </div>
+                <div class="clear"></div>
+            </article>
+            <article id="three" data-color="#0d78e7">
+                <h1>Swabhiman</h1>
+                <div>
+                    <img src="../Images/swabhiman.jpg">
+                    <p>Various studies, as well as our experience, have shown that when we work towards women
+                        empowerment,
+                        the
+                        whole society
+                        benefits. But unfortunately in India, far from being empowered, most women are denied even their
+                        basic
+                        rights like
+                        health, education, employment and a respectable status in society.
+
+                        According to a recent UNDP Human Development Report, India has a dangerously imbalanced sex
+                        ratio,
+                        the
+                        chief reason
+                        being rampant female infanticide and sex-selective abortions.
+
+                        Swabhiman, meaning self-respect in English, was initiated in 2005 to address these challenges
+                        through a
+                        simple yet
+                        effective approach. The programme is specifically aimed at realization of both individual and
+                        collective
+                        self-esteem and
+                        inner strength for marginalised and socially excluded women and adolescent girls through
+                        innovative
+                        community practices.
+
+                        A tailor-made strategy called the ‘4 S Model’ has been developed under Swabhiman for women
+                        empowerment.
+                        The ‘4 S Model’
+                        is an acronym for four novel approaches, namely Seeking Healthcare as a Behaviour, Support for
+                        Education, Supporters
+                        through Male Involvement, and Sustaining the Change in Communities.
+
+                        The programme identifies adolescent girls and women from the community and develops them into
+                        Change
+                        Agents, who in turn
+                        actively contribute to the community mobilization process.
+
+                        So far, Swabhiman has successfully made a difference to the lives of over 500,000 women and girl
+                        children.
+                    </p>
+                </div>
+                <div class="clear"></div>
+            </article>
+            <article id="four" data-color="#f88f18">
+                <h1>CHILD</h1>
+                <div>
+                    <img src="../Images/children.png">
+                    <p>Children are the future of a nation. They are the best change agents, be it in the family or the
+                        community in which they live. It is therefore crucial to help the children when young and
+                        inculcate in them feelings of empathy and conscience so that they grow up as responsible
+                        individuals.
+                        Sensitization of privileged children and their parents, towards the
+                        existing inequalities
+                        around them, is an important objective of CFC.
+
+                        Privileged children are sensitized about the deprivation and pain endured by the underprivileged
+                        kids.
+                        CFC seeks to
+                        inculcate a conscience and value system in the children so that they grow up to become
+                        responsible
+                        citizens and change
+                        makers. Before their minds are set with age, the CFC programme tries to make them count their
+                        own
+                        blessings and
+                        understand the plight of less privileged ones. Once they start realizing the worth of the
+                        privileges
+                        they are born with,
+                        they automatically turn their thoughts towards positivity and develop the right outlook. This
+                        eventually
+                        helps them
+                        develop into not only successful but responsible individuals in life. They grow up to become
+                        significant
+                        change makers,
+                        who contribute positively to the society.
+
+                        Under this programme,we various schools and conducts engaging sessions
+                        for the young
+                        minds. It sensitizes children towards various causes and let them realize their privileged
+                        status.
+
+                    </p>
+                </div>
+                <div class="clear"></div>
+            </article>
+            <article id="five" data-color="#E91E63">
+                <h1>STeP</h1>
+                <div>
+                    <img src="../Images/step.jpg">
+                    <p>The youth comprises over one-third of the Indian population which in turn constitutes a major
+                        part of
+                        the
+                        labour force
+                        of the country. The number of underprivileged youth in India who lacks education and proper
+                        guidance
+                        is
+                        so huge that
+                        according to the reports of the Financial Express only 15% of the young graduates passing out of
+                        colleges are
+                        employable; the rest are branded unemployable.
+
+                        It is not their lack of theoretical knowledge that causes this. Instead, it is the lack of right
+                        skills
+                        and attitude.
+                        There is thus, an increasing concern among the leading employers of the country, about the
+                        dearth of
+                        ready-to-deliver
+                        employees. In addition, the macro perspective affirms that, it is crucial for the energy of the
+                        underprivileged youth to
+                        be channelized properly with proper direction to aid economic growth and nation building to
+                        elude
+                        their
+                        addition to
+                        family woes, social stress and national misery.
+
+                        Smile Twin E- learning Programme (STeP) is such an initiative of Smile Foundation that aims at
+                        creating
+                        a pool of young
+                        and independent people, from a section of underprivileged youth, through skill enhancement in
+                        tandem
+                        with market
+                        requirements. It is an effort towards bridging the gap between demand and supply of skilled
+                        manpower
+                        in
+                        the fast
+                        emerging services and retail sectors of modern India.
+
+                        This national level programme trains the urban underprivileged youth in English Proficiency,
+                        Basic
+                        Computer Education
+                        and Soft Skills for enhancing their prospects of employment in the fast expanding retail,
+                        hospitality
+                        and BPO sectors.
+
+                        So far, 42,000 youth have been trained and 25,000 have been placed in over 200 brands through 95
+                        operational projects
+                        across India.<br><br><br><br><br><br><br>
+                    </p>
+                </div>
+                <div class="clear"></div>
+            </article>
+        </div>
+        <div id="footg">
+            <div id="footer">
+                <ul id="footerlist">
+                    <li class="footertitle">
+                        <a id='howdy'>
+                            <p style="cursor: pointer;">Contact us</p>
+                            <img src="../Images/phone.png" alt="contact" />
+                        </a>
+                    </li>
+                    <li class="footertitle">
+                        <a href="donate-now.html">
+                            <p>Donate now</p>
+                            <img src="../Images/donate.jpeg" alt="donate" />
+                        </a>
+                    </li>
+                    <li class="footertitle">
+                        <a href="join-us.html">
+                            <p>Join us</p>
+                            <img src="../Images/join-us.png" alt="join" />
+                        </a>
+                    </li>
+                    <li class="footertitle">
+                        <a id="howdy1">
+                            <p style="cursor: pointer;">Spread the word</p>
+                            <img src="../Images/spread3.png" alt="spread the word" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

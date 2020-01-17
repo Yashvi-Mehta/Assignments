@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./AU-V1-style.css">
+    <link rel="stylesheet" href="./AU-V2-style.css">
+    <link rel="stylesheet" href="headerstyle.css" type="text/css">
+    <link rel="stylesheet" href="footer_style.css" type="text/css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+        var modal = (function () {
+            var
+                method = {},
+                $overlay,
+                $modal,
+                $content,
+                $close;
+
+            // Center the modal in the viewport
+            method.center = function () {
+                var top, left;
+
+                top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
+                left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
+
+                $modal.css({
+                    top: top + $(window).scrollTop(),
+                    left: left + $(window).scrollLeft()
+                });
+            };
+
+            // Open the modal
+            method.open = function (settings) {
+                $content.empty().append(settings.content);
+
+                $modal.css({
+                    width: settings.width || 'auto',
+                    height: settings.height || 'auto'
+                });
+
+                method.center();
+                $(window).bind('resize.modal', method.center);
+                $modal.show();
+                $overlay.show();
+            };
+
+            // Close the modal
+            method.close = function () {
+                $modal.hide();
+                $overlay.hide();
+                $content.empty();
+                $(window).unbind('resize.modal');
+            };
+
+            // Generate the HTML and add it to the document
+            $overlay = $('<div id="overlay"></div>');
+            $modal = $('<div id="modal"></div>');
+            $content = $('<div id="content"></div>');
+            $close = $('<a id="close" href="#">close</a>');
+
+            $modal.hide();
+            $overlay.hide();
+            $modal.append($content, $close);
+
+            $(document).ready(function () {
+                $('body').append($overlay, $modal);
+            });
+
+            $close.click(function (e) {
+                e.preventDefault();
+                method.close();
+            });
+
+            return method;
+        }());
+
+        // Wait until the DOM has loaded before querying the document
+        $(document).ready(function () {
+
+            $.get('ajax.html', function (data) {
+                modal.open({ content: data });
+            });
+
+            $('a#howdy').click(function (e) {
+                modal.open({
+                    content: "Email:<h1><a href='mailto: myashvi16@hope.com'>myashvi16@hope.com</a></h1><h1> Contact: +919867677717 / 1234567890</h1><h2>  <div id='result'></div ><div id='embedMap' style='width: 100%; height:60vh;'></div><button type='button' onclick='showPosition()''> Show Position </button></h2>"
+                });
+                e.preventDefault();
+            });
+        });
+        $(document).ready(function () {
+
+            $.get('ajax.html', function (data) {
+                modal.open({ content: data });
+            });
+
+            $('a#howdy1').click(function (e) {
+                modal.open({
+                    // content: "<ul class='social- network social - circle'> < li > <a href='#'' class='icoRss' title='Rss'><i class='fa fa-rss'></i></a></li><li><a href='#' class='icoFacebook' title='Facebook'><i class='fa fa-facebook'></i></a></li><li><a href='#' class='icoTwitter' title='Twitter'><i class='fa fa-twitter'></i></a></li><li><a href='#' class='icoGoogle' title='Google +'><i class='fa fa-google-plus'></i></a></li><li><a href='#' class='icoLinkedin' title='Linkedin'><i class='fa fa-linkedin'></i></a></li></ul>"
+                    content: "<a href='#' class='fa fa-facebook'></a><a href='#' class='fa fa-twitter'></a><a href='#' class='fa fa-google'></a><a href='#' class='fa fa-linkedin'></a><a href='#' class='fa fa-youtube'></a><a href='#' class='fa fa-instagram'></a><a href='#' class='fa fa-snapchat-ghost'></a><a href='#' class='fa fa-yahoo'></a><a href='#' class='fa fa-reddit'></a>"
+
+                });
+                e.preventDefault();
+            });
+        });
+    </script>
+
+    <style>
+        #scroll-animate {
+            overflow: hidden;
+        }
+
+        #scroll-animate-main {
+            width: 100%;
+            left: 0;
+            position: fixed;
+        }
+
+        #heightPage,
+        #heightScroll {
+            width: 10px;
+            top: 0;
+            position: absolute;
+            z-index: 99;
+        }
+
+        #heightPage {
+            left: 0;
+        }
+
+        #heightScroll {
+            right: 0;
+        }
+
+        #au-view2 {
+            top: -80px;
+            margin-top: 50px;
+            width: 100%;
+            height: 115.5vh;
+            background: gray;
+            bottom: -300px;
+            position: fixed;
+            z-index: -1;
+            overflow: scroll;
+
+        }
+
+        .content {
+            /* margin-top: -500px; */
+
+            background: #ededed;
+            position: relative;
+            z-index: 1;
+        }
+
+        .wrapper-parallax {
+
+
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            text-transform: uppercase;
+            text-align: center;
+            font-family: Helvetica;
+            font-size: 150px;
+            color: #fff;
+        }
+
+
+
+        .content~h1 {
+            line-height: 800px;
+            color: #999;
+        }
+
+        #au-view2>h1 {
+            line-height: 1500px;
+        }
+
+        header,
+        #au-view2,
+        #scroll-animate-main {
+            -webkit-transition-property: all;
+            -moz-transition-property: all;
+            transition-property: all;
+
+            -webkit-transition-duration: 0.4s;
+            -moz-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+
+            -webkit-transition-timing-function: cubic-bezier(0, 0, 0, 1);
+            -moz-transition-timing-function: cubic-bezier(0, 0, 0, 1);
+            transition-timing-function: cubic-bezier(0, 0, 0, 1);
+        }
+    </style>
+
+    <!-- </script> -->
+    <script>
+        var modal = (function () {
+            var
+                method = {},
+                $overlay,
+                $modal,
+                $content,
+                $close;
+
+            // Center the modal in the viewport
+            method.center = function () {
+                var top, left;
+
+                top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
+                left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
+
+                $modal.css({
+                    top: top + $(window).scrollTop(),
+                    left: left + $(window).scrollLeft()
+                });
+            };
+
+            // Open the modal
+            method.open = function (settings) {
+                $content.empty().append(settings.content);
+
+                $modal.css({
+                    width: settings.width || 'auto',
+                    height: settings.height || 'auto'
+                });
+
+                method.center();
+                $(window).bind('resize.modal', method.center);
+                $modal.show();
+                $overlay.show();
+            };
+
+            // Close the modal
+            method.close = function () {
+                $modal.hide();
+                $overlay.hide();
+                $content.empty();
+                $(window).unbind('resize.modal');
+            };
+
+            // Generate the HTML and add it to the document
+            $overlay = $('<div id="overlay"></div>');
+            $modal = $('<div id="modal"></div>');
+            $content = $('<div id="content"></div>');
+            $close = $('<a id="close" href="#">close</a>');
+
+            $modal.hide();
+            $overlay.hide();
+            $modal.append($content, $close);
+
+            $(document).ready(function () {
+                $('body').append($overlay, $modal);
+            });
+
+            $close.click(function (e) {
+                e.preventDefault();
+                method.close();
+            });
+
+            return method;
+        }());
+
+        // Wait until the DOM has loaded before querying the document
+        $(document).ready(function () {
+
+            $.get('ajax.html', function (data) {
+                modal.open({ content: data });
+            });
+
+            $('a#howdy').click(function (e) {
+                modal.open({
+                    content: "Email:<h1><a href='mailto: myashvi16@hope.com'>myashvi16@hope.com</a></h1><h1> Contact: +919867677717 / 1234567890</h1><h2>  <div id='result'></div ><div id='embedMap' style='width: 100%; height:60vh;'></div><button type='button' onclick='showPosition()''> Show Position </button></h2>"
+                });
+                e.preventDefault();
+            });
+        });
+        $(document).ready(function () {
+
+            $.get('ajax.html', function (data) {
+                modal.open({ content: data });
+            });
+
+            $('a#howdy1').click(function (e) {
+                modal.open({
+                    // content: "<ul class='social- network social - circle'> < li > <a href='#'' class='icoRss' title='Rss'><i class='fa fa-rss'></i></a></li><li><a href='#' class='icoFacebook' title='Facebook'><i class='fa fa-facebook'></i></a></li><li><a href='#' class='icoTwitter' title='Twitter'><i class='fa fa-twitter'></i></a></li><li><a href='#' class='icoGoogle' title='Google +'><i class='fa fa-google-plus'></i></a></li><li><a href='#' class='icoLinkedin' title='Linkedin'><i class='fa fa-linkedin'></i></a></li></ul>"
+                    content: "<a href='#' class='fa fa-facebook'></a><a href='#' class='fa fa-twitter'></a><a href='#' class='fa fa-google'></a><a href='#' class='fa fa-linkedin'></a><a href='#' class='fa fa-youtube'></a><a href='#' class='fa fa-instagram'></a><a href='#' class='fa fa-snapchat-ghost'></a><a href='#' class='fa fa-yahoo'></a><a href='#' class='fa fa-reddit'></a>"
+
+                });
+                e.preventDefault();
+            });
+        });
+    </script>
+    <script>
+        function scrollFooter(scrollY, heightFooter) {
+            console.log(scrollY);
+            console.log(heightFooter);
+
+            if (scrollY >= heightFooter) {
+                $('#au-view2').css({
+                    'bottom': '0px'
+                });
+            }
+            else {
+                $('#au-view2').css({
+                    'bottom': '-' + heightFooter + 'px'
+                });
+            }
+        }
+
+        $(window).load(function () {
+            var windowHeight = $(window).height(),
+                footerHeight = $('#au-view2').height(),
+                heightDocument = (windowHeight) + ($('.content').height()) + ($('#au-view2').height()) - 20;
+
+            // Definindo o tamanho do elemento pra animar
+            $('#scroll-animate, #scroll-animate-main').css({
+                'height': heightDocument + 'px'
+            });
+
+            $('.wrapper-parallax').css({
+                // 'margin-top': windowHeight + 'px'
+            });
+
+            $('.content').css({
+                'height': windowHeight + 'px'
+            })
+            scrollFooter(window.scrollY, footerHeight);
+
+
+            window.onscroll = function () {
+                var scroll = window.scrollY;
+
+                $('#scroll-animate-main').css({
+                    'top': '-' + scroll + 'px'
+                });
+
+                scrollFooter(scroll, footerHeight);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="scroll-animate">
+        <div id="scroll-animate-main">
+            <div class="wrapper-parallax">
+
+
+                <section class="content">
+                    <section id="AboutUs-V1">
+
+                        <div class="au-v1-tl-item">
+
+                            <div class="au-v1-tl-bg" style="background-image: url(../Images/Yashvi.jfif)"></div>
+
+                            <div class="au-v1-tl-title">
+                                <p class="f2 heading--sanSerif">Co-Founder</p>
+                            </div>
+
+                            <div class="au-v1-tl-content">
+                                <h1 class="f3 text--accent ttu">Yashvi</h1>
+                                <div class="au-v1-bounce animated">
+                                    <p>A young I.T. professional, Yashvi has a soft corner towards the
+                                        underprivileged and orphanage kids and hopes to
+                                        help in any way possible.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="au-v1-tl-item">
+
+                            <div class="au-v1-tl-bg" style="background-image: url(../Images/nikhil.jfif)">
+                            </div>
+
+                            <div class="au-v1-tl-title">
+                                <p class="f2 heading--sanSerif">Co-Founder</p>
+                            </div>
+
+                            <div class="au-v1-tl-content">
+                                <h1 class="f3 text--accent ttu">Nikhil</h1>
+                                <div class="au-v1-bounce animated">
+                                    <p>Here is a man whose life and work mostly revolve
+                                        around the children and woman.
+                                        Cradled in a manger, raised up as a
+                                        carpenter in a poor home,
+                                        he understands the kids like no one else</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="au-v1-tl-item">
+
+                            <div class="au-v1-tl-bg" style="background-image: url(../Images/malavika.jfif)"></div>
+
+                            <div class="au-v1-tl-title">
+                                <p class="f2 heading--sanSerif">Co-Founder</p>
+                            </div>
+
+                            <div class="au-v1-tl-content">
+                                <h1 class="f3 text--accent ttu">Malavika</h1>
+                                <div class="au-v1-bounce animated">
+
+                                    <p>A renowned cardiologist and serving as the Heart Specialist in
+                                        the prestigious AIIMS Hospital.She is a
+                                        philanthropist and a distinguished figure in the
+                                        society, highly respected and known for his kind deeds and
+                                        professional services in medical as well as social
+                                        service field. She runs her private clinic too, where she treats the people
+                                        below
+                                        poverty line for free of cost.</p>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+            </div>
+            </section>
+
+            <div id="au-view2">
+                <div style="height: 20%;">
+                    <table cellspacing=0 style="background-color: #fff;width: 100%; height: 10%;">
+                        <tr>
+                            <td style="width: 20%; background-color: black; margin: 0;">
+                                <a href="homepage5.1.html">
+                                    <img src="../Images/logo.png" style="padding-top: 10px;width:100%; height:140px">
+                                </a>
+                            </td>
+                            <td style="width: 80%; height: 100%; background-color: black; padding-top: 20px;">
+                                <ul class="navigationbarr" style="width: 100%; padding-top: 30px;">
+                                    <li class="navigationli"><a href="homepage5.1.html">Home</a></li>
+                                    <li class="navigationli"><a href="about-us.html">About Us</a></li>
+                                    <li class="navigationli"><a href="ourwork-grid.html">Our Work</a></li>
+                                    <li class="navigationli"><a href="impact-grid.html">Impact</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="card-flip-body">
+                    <div class="cf-content">
+
+                        <div class="card">
+                            <div class="front" style="background-image: url('../Images/member2.jpg');">
+                                <p>Geetha Samynathan</p>
+                            </div>
+                            <div class="back">
+                                <div>
+                                    <p>Geetha is chair of the board.She leads the board in providing
+                                        governance and oversight on critical
+                                        matters for the firm including strategy, marketing,events.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="front" style="background-image: url('../Images/member4.jpg');">
+                                <p>Sanjana Mehta</p>
+                            </div>
+                            <div class="back">
+                                <div>
+                                    <p>Sanjana Mehta,Chief Executive Officer
+                                        Joe Ucuzoglu is the chief executive officer of Hope,
+                                        leading NGO in the India.
+                                        Joe remains actively engaged with many of our teams across
+                                        multiple sectors, working to ensure that we
+                                        are consistently delivering our best to everyone.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="front" style="background-image: url('../Images/member1.jpg');">
+                                <p>Monoshish Bhoumik</p>
+                            </div>
+                            <div class="back">
+                                <div>
+                                    <p>Monoshish serves as the Chief of Activities, advising on the strategy
+                                        and vision for our organization.
+                                        He speaks frequently on a broad range of current issues facing the
+                                        community and the role that we must play in leading society through the
+                                        harsh situations that they face.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="front" style="background-image: url('../Images/member3.jpg');">
+                                <p>Nishant Haryana</p>
+                            </div>
+                            <div class="back">
+                                <div>
+                                    <p>He is our chief Financial officer.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="front" style="background-image: url('../Images/member5.jpg');">
+                                <p>Akhil xyz</p>
+                            </div>
+                            <div class="back">
+                                <div>
+                                    <p>He is our head of PR</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="front" style="background-image: url('../Images/member6.jpg');">
+                                <p>Kiran Rajput</p>
+                            </div>
+                            <div class="back">
+                                <div>
+                                    <p>He is our recruiting head</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--TimeLine Starts Here-->
+                    <div>
+                        <center>
+                            <h3>Highlights of the year</h3>
+                        </center>
+                    </div>
+                    <section class="ps-timeline-sec">
+
+                        <div class="tl-container">
+                            <ol class="ps-timeline tl-ol">
+                                <li class="tl-li">
+                                    <div class="img-handler-top">
+                                        <img src="http://www.physology.co.uk/wp-content/uploads/2016/02/ps-elem_03.png"
+                                            alt="" />
+                                    </div>
+                                    <div class="ps-bot">
+                                        <p class="tl-p">Understanding the plight of people</p>
+                                    </div>
+                                    <span class="ps-sp-top tl-span">01</span>
+                                </li>
+                                <li class="tl-li">
+                                    <div class="img-handler-bot">
+                                        <img src="http://www.physology.co.uk/wp-content/uploads/2016/02/ps-elem_13.png"
+                                            alt="" />
+                                    </div>
+                                    <div class="ps-top">
+                                        <p class="tl-p">Starting the ngo</p>
+                                    </div>
+                                    <span class="ps-sp-bot tl-span">02</span>
+                                </li>
+                                <li class="tl-li">
+                                    <div class="img-handler-top">
+                                        <img src="http://www.physology.co.uk/wp-content/uploads/2016/02/ps-elem_05.png"
+                                            alt="" />
+                                    </div>
+                                    <div class="ps-bot">
+                                        <p class="tl-p">Enjoying helping people</p>
+                                    </div>
+                                    <span class="ps-sp-top tl-span">03</span>
+                                </li>
+                                <li class="tl-li">
+                                    <div class="img-handler-bot">
+                                        <img src="http://www.physology.co.uk/wp-content/uploads/2016/02/ps-elem_10.png"
+                                            alt="" />
+                                    </div>
+                                    <div class="ps-top">
+                                        <p class="tl-p">Join our happy family.</p>
+                                    </div>
+                                    <span class="ps-sp-bot tl-span">04</span>
+                                </li>
+                            </ol>
+                        </div>
+                    </section>
+                    <div id="footer">
+                        <ul id="footerlist">
+                            <li class="footertitle">
+                                <a id='howdy'>
+                                    <p style="cursor: pointer;">Contact us</p>
+                                    <img src="../Images/phone.png" alt="contact" />
+                                </a>
+                            </li>
+                            <li class="footertitle">
+                                <a href="donate-now.html">
+                                    <p>Donate now</p>
+                                    <img src="../Images/donate.jpeg" alt="donate" />
+                                </a>
+                            </li>
+                            <li class="footertitle">
+                                <a href="join-us.html">
+                                    <p>Join us</p>
+                                    <img src="../Images/join-us.png" alt="join" />
+                                </a>
+                            </li>
+                            <li class="footertitle">
+                                <a id="howdy1">
+                                    <p style="cursor: pointer;">Spread the word</p>
+                                    <img src="../Images/spread3.png" alt="spread the word" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

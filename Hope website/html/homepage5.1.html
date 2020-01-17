@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <link rel="stylesheet" type="text/css" href="social.css">
+    <link rel="stylesheet" type="text/css" href="MMT-style.css">
+    <link rel="stylesheet" type="text/css" href="footer_style.css">
+    <link rel="stylesheet" type="text/css" href="headerstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script>
+        var slideIndex = 1;
+
+        var myTimer;
+
+        var slideshowContainer;
+        window.addEventListener("load", function () {
+            showSlides(slideIndex);
+            myTimer = setInterval(function () { plusSlides(1) }, 2500);
+        })
+
+        function plusSlides(n) {
+            clearInterval(myTimer);
+            if (n < 0) {
+                showSlides(slideIndex -= 1);
+            } else {
+                showSlides(slideIndex += 1);
+            }
+            if (n === -1) {
+                myTimer = setInterval(function () { plusSlides(n + 2) }, 2500);
+            } else {
+                myTimer = setInterval(function () { plusSlides(n + 1) }, 2500);
+            }
+        }
+
+        function currentSlide(n) {
+            clearInterval(myTimer);
+            myTimer = setInterval(function () { plusSlides(n + 1) }, 2500);
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var lines = document.getElementsByClassName("line");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < lines.length; i++) {
+                lines[i].className = lines[i].className.replace(" active1", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            lines[slideIndex - 1].className += " active1";
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+        $(window).scroll(function () {
+            $("#vm-div2").delay(1500).animate({ right: '200px' }, 800);
+        });
+    </script>
+    <meta charset='utf-8'>
+    <title>HOPE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+
+        #modal {
+            position: absolute;
+            /* background: url(tint20.png) 0 0 repeat; */
+            background-color: #e1c112;
+            border-radius: 14px;
+            padding: 8px;
+        }
+
+        #content {
+            border-radius: 8px;
+            background: #816798;
+            padding: 20px;
+            color: wheat;
+        }
+
+        #close {
+            position: absolute;
+            background: url('../Images/close.png') 0 0 no-repeat;
+            width: 24px;
+            height: 27px;
+            display: block;
+            text-indent: -9999px;
+            top: -7px;
+            right: -7px;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function showPosition() {
+            //if geolocation is available,try to get the visitors position
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showMap, showError);
+                result.innerHTML = "Getting the position information";
+            }
+            else {
+                alert("Sorry. Your browser does not support html5 geolocatiion");
+            }
+        };
+        //define callback for successful attempt
+        function showMap(position) {
+            //get location data
+            lat = position.coords.latitude;
+            long = position.coords.longitude;
+            var latlong = new google.maps.LatLng(lat, long);
+            var myOptions = {
+                center: latlong,
+                zoom: 16,
+                mapTypeControl: true,
+                navigationControlOptions:
+                    { style: google.maps.NavigationControlStyle.SMALL }
+            }
+
+            var map = new google.maps.Map(document.getElementById("embedMap"), myOptions);
+            var marker = new google.maps.Marker({ position: latlong, map: map, title: "You are here" });
+        }
+
+        //define callback for failed attempt
+        function showError(error) {
+            switch (error) {
+                case 1: result.innerHTML = "Permission to access location denied";
+                    break;
+                case 2: result.innerHTML = "Network down or positioning service cannot be reached";
+                    break;
+                case 3: result.innerHTML = "Session timed out";
+                    break;
+                default: result.innerHTML = "unknown error occured";
+            }
+        }
+    </script>
+    <script>
+        var modal = (function () {
+            var
+                method = {},
+                $overlay,
+                $modal,
+                $content,
+                $close;
+
+            // Center the modal in the viewport
+            method.center = function () {
+                var top, left;
+
+                top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
+                left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
+
+                $modal.css({
+                    top: top + $(window).scrollTop(),
+                    left: left + $(window).scrollLeft()
+                });
+            };
+
+            // Open the modal
+            method.open = function (settings) {
+                $content.empty().append(settings.content);
+
+                $modal.css({
+                    width: settings.width || 'auto',
+                    height: settings.height || 'auto'
+                });
+
+                method.center();
+                $(window).bind('resize.modal', method.center);
+                $modal.show();
+                $overlay.show();
+            };
+
+            // Close the modal
+            method.close = function () {
+                $modal.hide();
+                $overlay.hide();
+                $content.empty();
+                $(window).unbind('resize.modal');
+            };
+
+            // Generate the HTML and add it to the document
+            $overlay = $('<div id="overlay"></div>');
+            $modal = $('<div id="modal"></div>');
+            $content = $('<div id="content"></div>');
+            $close = $('<a id="close" href="#">close</a>');
+
+            $modal.hide();
+            $overlay.hide();
+            $modal.append($content, $close);
+
+            $(document).ready(function () {
+                $('body').append($overlay, $modal);
+            });
+
+            $close.click(function (e) {
+                e.preventDefault();
+                method.close();
+            });
+
+            return method;
+        }());
+
+        // Wait until the DOM has loaded before querying the document
+        $(document).ready(function () {
+
+            $.get('ajax.html', function (data) {
+                modal.open({ content: data });
+            });
+
+            $('a#howdy').click(function (e) {
+                modal.open({
+                    content: "Email:<h1><a style='text-decoration:none; color:#f5deb3' href='mailto: myashvi16@hope.com'>myashvi16@hope.com</a></h1><h1> Contact: +919867677717 / 1234567890</h1><h2>  <div id='result'></div ><div id='embedMap' style='width: 100%; height:60vh;'></div><button type='button' onclick='showPosition()''> Show Position </button></h2>"
+                });
+                e.preventDefault();
+            });
+        });
+        $(document).ready(function () {
+
+            $.get('ajax.html', function (data) {
+                modal.open({ content: data });
+            });
+
+            $('a#howdy1').click(function (e) {
+                modal.open({
+                    // content: "<ul class='social- network social - circle'> < li > <a href='#'' class='icoRss' title='Rss'><i class='fa fa-rss'></i></a></li><li><a href='#' class='icoFacebook' title='Facebook'><i class='fa fa-facebook'></i></a></li><li><a href='#' class='icoTwitter' title='Twitter'><i class='fa fa-twitter'></i></a></li><li><a href='#' class='icoGoogle' title='Google +'><i class='fa fa-google-plus'></i></a></li><li><a href='#' class='icoLinkedin' title='Linkedin'><i class='fa fa-linkedin'></i></a></li></ul>"
+                    content: "<a href='#' class='fa fa-facebook'></a><a href='#' class='fa fa-twitter'></a><a href='#' class='fa fa-google'></a><a href='#' class='fa fa-linkedin'></a><a href='#' class='fa fa-youtube'></a><a href='#' class='fa fa-instagram'></a><a href='#' class='fa fa-snapchat-ghost'></a><a href='#' class='fa fa-yahoo'></a><a href='#' class='fa fa-reddit'></a>"
+
+                });
+                e.preventDefault();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class='container'>
+        <div id='logo'>
+            <a href="homepage5.1.html"><img
+                    src="D:/yashvi studies/deloitte training/Nexwave/UI training/final project/ICONS/logo.png">
+            </a>
+        </div>
+        <div id="nav1">
+            <ul class="navigationbarr">
+                <li class="navigationli"><a href="homepage5.1.html">Home</a></li>
+                <li class="navigationli"><a href="about-us.html">About Us</a></li>
+                <li class="navigationli"><a href="ourwork-grid.html">Our Work</a></li>
+                <li class="navigationli"><a href="impact-grid.html">Impact</a></li>
+            </ul>
+        </div>
+        <div id="header">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img class="sliderimg" src="../Images/4.jpg" alt="bihar women">
+                    <!-- <div class="text">Caption Text</div> -->
+                </div>
+
+                <div class="mySlides fade">
+                    <img class="sliderimg" src="../Images/6.jpg" alt="teaching childern">
+                    <!-- <div class="text">Caption Two</div> -->
+                </div>
+
+                <div class="mySlides fade">
+                    <img class="sliderimg" src="../Images/8.jpg" alt="empowered widows">
+                    <!-- <div class="text">Caption Three</div> -->
+                </div>
+
+                <div class="mySlides fade">
+                    <img class="sliderimg" src="../Images/7.png" alt="childrenn fed">
+                    <!-- <div class="text">Caption Four</div> -->
+                </div>
+
+                <div class="nav-lines">
+                    <span class="line" onclick="currentSlide(1)"></span>
+                    <span class="line" onclick="currentSlide(2)"></span>
+                    <span class="line" onclick="currentSlide(3)"></span>
+                    <span class="line" onclick="currentSlide(4)"></span>
+                </div>
+            </div>
+        </div>
+        <div id="who">
+            <div class="vm-container">
+                <div class="vm-child" id="vm-div2">
+                    <div class="vm-left" id="l1">
+                        <img id="vm-image" src="../Images/vision-clipart.png">
+                    </div>
+                    <div class="vm-right" id="r1">
+                        <div id="vm-content">
+                            <strong>Vision:</strong><br>
+                            An attempt to make sure no one looses 'HOPE'.
+                            <br><br>
+                            <br>
+                            <strong>Mission:</strong><br>
+                            <ul style="list-style-type: none;">
+                                <br />
+                                <li>To enable people to take responsibility for the
+                                    situation of the deprived Indian child and
+                                    motivate them to seek resolution through individual
+                                    and collective action, enabling children to
+                                    realise their full potential.</li>
+                                <br />
+                                <li>
+                                    To make people discover their potential for action and change.
+                                </li>
+                                <br />
+                                <li>
+                                    To enable peoples’ collectives and movements encompassing diverse segments, to
+                                    pledge their
+                                    particular strengths,
+                                    working in partnership to secure, protect and
+                                    honour the rights of India’s children.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="team">
+            <div class="MMT-main_class">
+                <p id="MMT-title">
+                    <h1 style="font-size: 20vh;">MEET THE TEAM</h1>
+                </p>
+                <div class="MMT-div_class">
+                    <img src="../Images/men-women.png" id="MMT-img1" class="MMT-img-class2" style="width: 60%; ">
+                </div>
+            </div>
+            <div id="MMT-hide-div">
+                <div id="outer-div">
+                    <table>
+                        <tr>
+                            <th colspan="2">
+                                <br />
+                                <h1>Our reach</h1>
+                                <br /><br />
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p id="our_reach">
+                                    In keeping with its philosophy of ‘Real Work Real Change’, Smile Foundation an NGO
+                                    to support
+                                    the
+                                    underserved has taken
+                                    its intervention into the interiors of India, reaching the unreached in the remotest
+                                    of rural
+                                    areas and
+                                    urban slums with
+                                    our services.
+                                    <!-- 25states 350+ projects 1000+village and slums -->
+                                </p>
+                            </td>
+                            <td rowspan="2">
+                                <img id="map" src="../Images/map2.png" height="80%">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="our_reach2">25states<span class="vline">|</span> 350+ projects <span
+                                    class="vline">|</span>1000+village and slums</td>
+                        </tr>
+
+                    </table>
+                </div>
+
+                <div id="footer">
+                    <ul id="footerlist">
+                        <li class="footertitle">
+                            <a id='howdy'>
+                                <p style="cursor: pointer;">Contact us</p>
+                                <img src="../Images/phone.png" alt="contact" />
+                            </a>
+                        </li>
+                        <li class="footertitle">
+                            <a href="donate-now.html">
+                                <p>Donate now</p>
+                                <img src="../Images/donate.jpeg" alt="donate" />
+                            </a>
+                        </li>
+                        <li class="footertitle">
+                            <a href="join-us.html">
+                                <p>Join us</p>
+                                <img src="../Images/join-us.png" alt="join" />
+                            </a>
+                        </li>
+                        <li class="footertitle">
+                            <a id="howdy1">
+                                <p style="cursor: pointer;">Spread the word</p>
+                                <img src="../Images/spread3.png" alt="spread the word" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="foot">
+
+            </div>
+        </div>
+</body>
+
+</html>

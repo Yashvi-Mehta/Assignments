@@ -1,0 +1,210 @@
+html,
+body {
+margin: 0;
+padding: 0;
+/* background-color: lawngreen; */
+}
+
+#hoi-main-div {
+width: 100%;
+height: 500px;
+display: inline-flex;
+background-color: yellow;
+right: 0;
+}
+
+#hoi-heros-div {
+width: 50%;
+height: inherit;
+background-color: rebeccapurple;
+overflow: hidden;
+z-index: 0.1;
+}
+
+#hoi-content-div {
+width: 50%;
+height: inherit;
+background-color: salmon;
+overflow: hidden;
+z-index: 0.1;
+}
+
+.hoi-next-img,
+.hoi-prev-img {
+position: relative;
+top: 420px;
+height: 20px;
+width: 15px;
+z-index: 9;
+
+}
+
+.hoi-next-img {
+right: -95%;
+}
+
+.hoi-prev-img {
+left: 2%;
+}
+
+.hoi-next-img:hover,
+.hoi-prev-img:hover {
+transform: scale(1.5);
+background-color: rgba(131, 146, 161, 0.281);
+border-radius: 2px;
+cursor: pointer;
+
+}
+
+#hoi-heros-div ul {
+position: relative;
+margin: 0;
+padding: 0;
+list-style: none;
+text-align: center;
+/* width: 100%; */
+/*height: 500px; */
+}
+
+#hoi-heros-div ul li {
+position: relative;
+display: block;
+float: left;
+margin: 0;
+padding: 0;
+background: #ccc;
+text-align: center;
+line-height: 300px;
+height: 500px;
+}
+
+.hero-images {
+margin-top: 0px;
+margin: 0;
+padding: 0;
+max-height: 500px;
+max-width: 80vw;
+width: inherit;
+height: inherit;
+z-index: 0.2;
+position: relative;
+top: -4%;
+}
+.content-images{
+margin-top: 0px;
+margin: 0;
+padding: 0;
+width: inherit;
+height: inherit;
+z-index: 0.2;
+position: relative;
+top: -4%;
+}
+
+#hoi-content-div ul {
+position: relative;
+margin: 0;
+padding: 0;
+list-style: none;
+text-align: center;
+/* width: 100%;
+height: 500px; */
+}
+
+#hoi-content-div ul li {
+position: relative;
+display: block;
+float: left;
+margin: 0;
+padding: 0;
+background: #ccc;
+text-align: center;
+line-height: 300px;
+height: 500px;
+}
+.heading-hoi{
+    background-color:  #816798;
+    font-family: Helvetica, sans-serif;
+    font-size: 8vh;
+    font-weight: bold;
+    text-align: center;
+    color: rgba(245, 222, 179, 0.784);
+}
+
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
+
+        body {
+            /* background-color: #ddd; */
+        }
+
+        .carousel-item.active,
+        .carousel-item-next,
+        .carousel-item-prev {
+            display: block;
+        }
+
+        .whitecolor {
+            color: white;
+            font-size: large;
+            font-family: 'Adobe Garamond';
+        }
+
+        .quote {
+            padding: 6%;
+
+        }
+
+        .container1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .blockquote {
+            padding: 60px 80px 40px;
+            position: relative;
+        }
+
+        .blockquote p {
+            font-family: "Utopia-italic";
+            font-size: 35px;
+            font-weight: 700px;
+            text-align: center;
+        }
+
+
+
+        .blockquote::before {
+            /* content: "\f10d"; */
+            position: absolute;
+            font-family: 'FontAwesome';
+            top: 0;
+            align-items: baseline;
+
+
+            /* content: '\201D'; */
+            font-size: 200px;
+            /* color: rgba(150, 90, 90, 1); */
+
+        }
+
+        .blockquote::after {
+            content: "";
+            top: 20px;
+            left: 50%;
+            margin-left: -100px;
+            position: absolute;
+            border-bottom: 3px solid #bf0024;
+            height: 3px;
+            width: 200px;
+        }
+ /* #logo {
+            grid-area: logog;
+            /* border: 1px solid red; */
+        /* } */
+
+        #nav1 {
+            grid-area: navg;
+            /* border: 1px solid red; */
+
+        }

@@ -1,0 +1,145 @@
+<html>
+
+<head>
+    <title>Registration form</title>
+    <script>
+        function resetAll() {
+            document.getElementById("fname").value = "";
+            document.getElementById("lname").value = "";
+            document.getElementById("eid").value = "";
+            document.getElementById("country").value = "";
+            document.getElementById("interest").value = "";
+            document.getElementById("skills").value = "";
+            document.getElementById("exp").value = "";
+            document.getElementById("reason").value = "";
+        }
+        function submitted() {
+            alert("Your application has been registered");
+        }
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="join-us.css">
+    <link rel="stylesheet" href="headerstyle.css" type="text/css">
+    <link rel="stylesheet" href="footer_style.css" type="text/css">
+</head>
+
+<body class="joinus-body">
+    <div class="join-container">
+        <div id="logog">
+            <a href="homepage5.1.html">
+                <img src="../Images/Logo.PNG">
+            </a>
+        </div>
+        <div id="navg">
+            <ul class="navigationbarr">
+                <li class="navigationli"><a href="homepage5.1.html" style="padding-top: 10%; font-size: 120%;">Home</a>
+                </li>
+                <li class="navigationli"><a href="about-us.html" style="padding-top: 10%; font-size: 120%;">About Us</a>
+                </li>
+                <li class="navigationli"><a href="ourwork-grid.html" style="padding-top: 10%; font-size: 120%;">Our
+                        Work</a></li>
+                <li class="navigationli"><a href="impact-grid.html" style="padding-top: 10%;font-size: 120%;">Impact</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab" style="margin-top: 20px;">
+
+            <form name="f1" action="homepage5.1.html" method="get">
+
+                <table class="form1">
+                    <tr>
+                        <td colspan="2">
+                            <h2 style="font-size: xx-large;">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registration Form</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelsname"><label for="fname">First Name: </label></td>
+                        <td><input type=text id="fname" class="inputbox1"></td>
+                    </tr>
+                    <tr>
+                        <td class="labelsname"><label for="lname">Last Name: </label></td>
+                        <td><input type=text id="lname" class="inputbox1" /></td>
+                    </tr>
+                    <tr>
+                        <td class="labelsname"><label for="country">Departments </label></td>
+                        <td><select name="country" id="country" class="inputbox1">
+                                <option>Child</option>
+                                <option>Women Development</option>
+                                <option>Health</option>
+                                <option>Administration</option>
+                                <option>Marketing</option>
+                                <option>Finance</option>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="labelsname"><label for="eid">Email id: </label></td>
+                        <td><input type=email name="eid" id="eid" class="inputbox1" /></td>
+                    </tr>
+                    <tr>
+                        <td class="labelsname"><label for="gen">Gender: </label></td>
+                        <td class="labelsname"><input type=radio name="gen" id="gen" value="m" />Male
+                            <input type=radio name="gen" id="gen" value="f" />Female</td>
+                    </tr>
+                    <tr>
+                        <td class="labelsname"><label for="interest">Interests: </label for="interest"></td>
+                        <td><input type=text id="interest" class="inputbox1" /></td>
+                    </tr>
+                    <tr>
+                        <td class="labelsname"><label for="skills">Skills: </label></td>
+                        <td><input type=text id="skills" class="inputbox1" /></td>
+                    </tr>
+                    <tr>
+                        <td class="labelsname"><label for="exp">Experience in years: </label></td>
+                        <td><input type="number" id="exp" min="0" class="inputbox1">
+                        </td>
+                    </tr>
+                    <td class="labelsname"><label for="reason">Why Join us?: </label></td>
+                    <td><textarea rows="4" cols="30" id="reason"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align:center">
+                            <input type="button" value="Register" onclick="submitted()" class="btnbackground1">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type=button value="  Reset  " onclick="resetAll()" class="btnbackground1">
+                        </td>
+
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div id="footg">
+            <div id="footer" style="height: 80px; position: relative; bottom:-20px;">
+                <ul id="footerlist">
+                    <li class="footertitle">
+                        <a id='howdy'>
+                            <p style="cursor: pointer;">Contact us</p>
+                            <img src="../Images/phone.png" alt="contact" />
+                        </a>
+                    </li>
+                    <li class="footertitle">
+                        <a href="donate-now.html">
+                            <p>Donate now</p>
+                            <img src="../Images/donate.jpeg" alt="donate" />
+                        </a>
+                    </li>
+                    <li class="footertitle">
+                        <a href="join-us.html">
+                            <p>Join us</p>
+                            <img src="../Images/join-us.png" alt="join" />
+                        </a>
+                    </li>
+                    <li class="footertitle">
+                        <a id="howdy1">
+                            <p style="cursor: pointer;">Spread the word</p>
+                            <img src="../Images/spread3.png" alt="spread the word" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

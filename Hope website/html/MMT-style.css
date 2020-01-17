@@ -1,0 +1,107 @@
+.MMT-main_class {
+            /* margin-top: 100px; */
+            align-self: center;
+            background-color: rgb(255, 140, 0);
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            height: 500px;
+            position: relative;
+            top:-20%;
+            z-index: 1;
+        }
+
+        .MMT-title {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: bold;
+            font-size: 500;
+        }
+
+        .MMT-img-class1,
+        .MMT-img-class2,
+        .MMT-img-class3 {
+            visibility: hidden;
+            bottom: 0;
+            text-align: center;
+            z-index: -1;
+            transition: 1s linear;
+        }
+.contentimg li img{
+background-size: contain;
+}
+        .MMT-div_class {
+            width: 100%;
+            height: 110px;
+            position: absolute;
+            background-color: red;
+            bottom: 0px;
+            left: 0;
+            z-index: 3;
+            /* overflow-y: auto; */
+        }
+
+        #MMT-hide-div {
+            position: relative;
+            background-color: green;
+            height: 600px;
+            width: 100%;
+            margin-top: -15%;
+            z-index: 4;
+        }
+
+
+        .MMT-main_class:hover .MMT-img-class1 {
+            visibility: visible;
+            transition: 0s linear;
+            transform: translateY(-140px);
+
+        }
+
+        .MMT-main_class:hover .MMT-img-class2 {
+            visibility: visible;
+            transition: 0.25s linear;
+            transform: translateY(-160px);
+        }
+
+        .MMT-main_class:hover .MMT-img-class3 {
+            visibility: visible;
+            transition: 0.4s linear;
+            transform: translateY(-110px);
+        }
+        #outer-div {
+            position: relative;
+            top: 80px;
+            background-color: burlywood;
+            width: 100%;
+            height: 50vh;
+            display: inline-block;
+        }
+
+        #map {
+            position: relative;
+            top: -180px;
+        }
+
+        #our_reach {
+            position: relative;
+            top: -150px;
+            padding-left: 15px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-size: 25px;
+        }
+
+        #our_reach2 {
+            position: relative;
+            top: -270px;
+            height: 20vh;
+            /* background-color: darkcyan; */
+            font-size: 5vh;
+            text-align: center;
+        }
+
+        .data-our-reach {
+            color: burlywood;
+            background-color: darkcyan;
+        }
